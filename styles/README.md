@@ -1,0 +1,2 @@
+>These styles are CSS files that are attached to the index.html page in the traditional way using a resource link.   
+>They are required to apply overall styling to the application outside the confines of the aurelia app.

@@ -1,0 +1,54 @@
+<template>
+    <require from="styles/forms.css"></require>
+    <ai-dialog style="max-width: 325px">
+        <ai-dialog-header>${'user.detail-title' | t}</ai-dialog-header>
+        <ai-dialog-body>
+            
+  <div class="form-group">
+        <label class="form-control-label" t="user.display-name"></label>
+        <div class="form-control-container">
+            <input type="text" class="form-control" placeholder="${'user.display-name' | t}" enter-press.call="enterPressed()"
+                value.bind="user.displayName">
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" t="user.username"></label>
+            <div class="form-control-container">
+                <input type="text" class="form-control" placeholder="${'user.username' | t}" enter-press.call="enterPressed()"
+                    value.bind="user.username">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" t="user.password"></label>
+            <div class="form-control-container">
+                <input type="password" class="form-control" placeholder="${'user.password' | t}" enter-press.call="enterPressed()"
+                    value.bind="password">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" t="user.role"></label>
+            <div class="form-control-container">
+                <dropdown options.bind="roles" selected.bind="user.role"></dropdown>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" t="user.date"></label>
+            <div class="form-control-container">
+                <datepicker value.bind="user.created"></datepicker>
+            </div>
+        </div>
+
+        <div class="alert">${errorMessage | t}</div>
+
+        </ai-dialog-body>
+        <ai-dialog-footer>
+            <button class="btn btn-cancel" mo-tap.call="cancel()" t="button.cancel"></button>
+            <button class="btn btn-success" mo-tap.call="save()" t="button.save"></button>
+        </ai-dialog-footer>
+    </ai-dialog>
+
+</template>

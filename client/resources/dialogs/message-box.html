@@ -1,0 +1,13 @@
+<template>
+  <ai-dialog style="max-width: 325px">
+    <ai-dialog-header>${model.title | t}</ai-dialog-header>
+
+    <ai-dialog-body>
+      ${model.message | t}
+    </ai-dialog-body>
+
+    <ai-dialog-footer>
+      <button repeat.for="option of model.options" mo-tap.call="selectOption(option)">${'button.' + option | t}</button>
+    </ai-dialog-footer>
+  </ai-dialog>
+</template>

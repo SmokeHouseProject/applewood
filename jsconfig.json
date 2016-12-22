@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "amd",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "app",
+    "build",
+    "dist",
+    "hooks",
+    "images",
+    "node_modules",
+    "platforms",
+    "plugins",
+    "res",
+    "server/node_modules",
+    "www"
+  ]
+}

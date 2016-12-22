@@ -1,0 +1,48 @@
+<template>
+    <require from="styles/forms.css"></require>
+    <ai-dialog style="max-width: 325px">
+        <ai-dialog-header>${'product.detail-title' | t}</ai-dialog-header>
+        <ai-dialog-body>
+            
+  <div class="form-group">
+        <label class="form-control-label" t="product.name"></label>
+        <div class="form-control-container">
+            <input type="text" class="form-control" placeholder="${'product.name' | t}" enter-press.call="enterPressed()"
+                value.bind="product.name">
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" t="product.model"></label>
+            <div class="form-control-container">
+                <input type="text" class="form-control" placeholder="${'product.model' | t}" enter-press.call="enterPressed()"
+                    value.bind="product.model">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" t="product.description"></label>
+            <div class="form-control-container">
+                <input type="text" class="form-control" placeholder="${'product.description' | t}" enter-press.call="enterPressed()"
+                    value.bind="product.description">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" t="product.price"></label>
+            <div class="form-control-container">
+                <input type="text" class="form-control" placeholder="${'product.price' | t}" enter-press.call="enterPressed()"
+                    value.bind="product.price">
+            </div>
+        </div>
+
+        <div class="alert">${errorMessage | t}</div>
+
+        </ai-dialog-body>
+        <ai-dialog-footer>
+            <button class="btn btn-cancel" mo-tap.call="cancel()" t="button.cancel"></button>
+            <button class="btn btn-success" mo-tap.call="save()" t="button.save"></button>
+        </ai-dialog-footer>
+    </ai-dialog>
+
+</template>

@@ -1,0 +1,36 @@
+body {
+    margin: 0 0 0 0;
+}
+
+body.iOS {
+    margin: 20px 0 0 0;
+}
+
+ai-dialog-overlay.active {
+    background-color: black;
+    opacity: 0.5 !important;
+}
+
+ai-dialog-container>div {
+    padding: 0 !important;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}
+
+ai-dialog-container>div>div {
+    margin: 0 !important;
+}
+
+ai-dialog {
+    height: auto !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+
+.alert {
+    color: red;
+}

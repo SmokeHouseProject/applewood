@@ -1,0 +1,38 @@
+//Mixins for setting container positioning
+
+
+//Absolute position element and anchor all of its edges to container's edges
+.abs-edge (@top:0; @right:0; @bottom:0; @left:0) {
+    position: absolute;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+}
+
+// Absolute position element and anchor all of its edges to container's edges with a common offset.
+.abs-edge-offset (@offset) {
+    .abs-edge(@offset;@offset;@offset;@offset);
+}
+
+// Absolute position element and set height and width
+.abs-size (@width:100%; @height:100%) {
+    position: absolute;
+    width: @width;
+    height: @height;
+}
+
+// Relative position element and set height and width
+.rel-size (@width:100%; @height:100%) {
+    position: relative;
+    width: @width;
+    height: @height;
+}
+
+// Center element in container
+.center() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}

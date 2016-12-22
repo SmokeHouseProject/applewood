@@ -1,0 +1,44 @@
+//Some common mixins
+
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+.border-radius(@args) {
+    border-radius: @args;
+    background-clip: padding-box;
+}
+
+.box-shadow(@args) {
+    -webkit-box-shadow: @args;
+    box-shadow: @args;
+}
+
+.inner-shadow(@args) {
+    .box-shadow(inset @args);
+}
+
+.box-sizing(@args) {
+    -webkit-box-sizing: @args;
+    -moz-box-sizing: @args;
+    box-sizing: @args;
+}
+
+.border-box(){
+    .box-sizing(border-box);
+}
+
+.content-box(){
+    .box-sizing(content-box);
+}
+

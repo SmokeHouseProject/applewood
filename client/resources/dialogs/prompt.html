@@ -1,0 +1,17 @@
+<template>
+  <ai-dialog>
+    <ai-dialog-header>${model.title | t}</ai-dialog-header>
+
+    <ai-dialog-body>
+      <p>${model.message}</p>
+      <form submit.triger="ok()">
+        <input type="text" class="form-control" attach-focus="true" value.bind="answer" attach-focus="true">
+      </form>
+    </ai-dialog-body>
+
+    <ai-dialog-footer>
+      <button mo-tap.call="cancel()" t="button.cancel"></button>
+      <button mo-tap.call="ok()" disabled.bind="!answer" t="button.ok"></button>
+    </ai-dialog-footer>
+  </ai-dialog>
+</template>

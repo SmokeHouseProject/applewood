@@ -1,0 +1,26 @@
+
+Add some unit tests
+
+Switch to headless browser for unit tests
+
+Switch server to ES2016 using Babel and Gulp
+
+Re-visit how should.js lib is injected. Currently it is included in every opbject. We want to inject only for unit testing.
+
+Complete the config and intitalization for https server for web api
+
+Need a mechanism to refresh token during usage - currently times out after one hr.
+
+Add Timed log out for idle app
+
+Add user themes
+
+
+
+
+
+
+
+
+
+

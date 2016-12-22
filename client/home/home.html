@@ -1,0 +1,14 @@
+<template>   
+    <require from="home/home.css"></require>
+    <div class="home">
+        <div class="menu">
+            <div repeat.for="nav of  router.navigation | route" class="${nav.isActive ? 'active' : ''}">
+                <a href.bind="nav.href">${nav.settings.title | t}</a>
+            </div>
+            <div class="spacer"></div>
+            <div tabIndex="0" class="logout" mo-tap.call="logout()" t="home.logout"></div>
+        </div>
+        <hr/>
+        <router-view></router-view>
+    </div>
+</template>

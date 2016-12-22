@@ -1,0 +1,33 @@
+<template>
+    <require from="./products.css"></require>
+    <div class="alert" t=${message}></div>
+    <div class="add">
+        <button class="pure-button btn"  mo-tap.call="add()">
+            <i class="fa fa-plus"></i>
+            ${'button.add' | t}
+        </button>
+    </div>
+    <div class="products">
+        <div class="pure-g row" repeat.for="product of products">
+            <div class="pure-u-1-5 cell name" mo-tap.call="getDetail(product)">
+                ${product.name}
+            </div>
+            <div class="pure-u-1-5 cell">
+                ${product.model}
+            </div>
+            <div class="pure-u-1-5 cell">
+                ${product.description}
+            </div>
+            <div class="pure-u-1-5 cell">
+                ${product.price | number}
+            </div>
+            <div class="pure-u-1-5 cell right">
+                <button class="pure-button btn" mo-tap.call="delete(product)">
+                    <i class="fa fa-close"></i>
+                    ${'button.delete' | t}
+                </button>
+            </div>
+        </div>
+    </div>
+
+</template>

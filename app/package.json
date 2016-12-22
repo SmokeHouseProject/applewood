@@ -1,0 +1,7 @@
+{
+  "name": "applewood",
+  "description": "The applewood flavor of the Smoke House Project",
+  "author": "Daryl Cober",
+  "version": "0.1.0",
+  "main": "main.js"
+}

@@ -1,0 +1,23 @@
+// Flex mixins
+
+.flexbox (@orientation:horizontal, @pack:start, @align:stretch) {
+    display: -webkit-box;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: @orientation;
+    -webkit-box-pack: @pack;
+    -webkit-box-align: @align;
+}
+
+.hbox (@pack:start, @align:stretch) {
+    .flexbox(horizontal, @pack, @align);
+}
+
+.vbox (@pack:start, @align:stretch) {
+    .flexbox(vertical, @pack, @align);
+}
+
+.flex(@value) {
+    -webkit-box-flex: @value;
+}
+
+

@@ -1,0 +1,69 @@
+{
+    "language": {
+        "en": "English",
+        "fr": "French"
+    },
+    "login": {
+        "title": "Log In"
+    },
+    "message": {
+        "title": "Message"
+    },
+    "prompt": {
+        "title": "Prompt"
+    },
+    "splash": {
+        "project": "The Smoke House Project",
+        "flavor": "Applewood",
+        "login": "Log In"
+    },
+    "home": {
+        "logout": "Log Out"
+    },
+    "roles": {
+        "admin": "Administrator",
+        "manager": "Manager",
+        "user": "User",
+        "unknown": "Unknown"
+    },
+    "error": {
+        "network-problem": "Network Problem - Try Again",
+        "duplicate-user": "Duplicate User",
+        "bad-user": "User does not exist",
+        "bad-password": "Password does not match",
+        "missing-auth-header": "Missing authorization header",
+        "token-expired": "Authorization token has expired",
+        "no-permission": "User does not have permission to execute this action"
+    },
+    "button": {
+        "add": "Add",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "login": "Login",
+        "save": "Save",
+        "ok": "Ok"
+    },
+    "nav": {
+        "users": "Users",
+        "products": "Products"
+    },
+    "user": {
+        "display-name": "Display Name",
+        "username": "Username",
+        "password": "Password",
+        "role": "Role",
+        "date": "Start Date",
+        "detail-title": "User Detail",
+        "delete-title": "Delete User",
+        "delete-message": "Are you sure you want to delete {{username}}?"
+    },
+    "product": {
+        "name": "Name",
+        "model": "Model",
+        "description": "Description",
+        "price": "Price",
+        "detail-title": "Product Detail",
+        "delete-title": "Delete Product",
+        "delete-message": "Are you sure you want to delete {{name}}?"
+    }
+}

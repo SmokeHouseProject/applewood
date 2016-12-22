@@ -1,0 +1,46 @@
+@import (reference) "./less/less";
+
+.splash {
+    .abs-size();
+    background-color: @backgroundColor;
+
+    h2 {
+        font-family: cursive;
+        font-size: xx-large;
+        text-align: center;
+    }
+
+    @media @smartphones {
+        h2 {
+            font-size: large;
+        }
+    }
+
+    .login {
+        float: right;
+        padding: 20px;
+    }
+
+    .centered {
+        .center();
+        .vbox();
+
+        .title {
+            .flex(1);
+        }
+
+        .image {
+            .flex(1);
+        
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                margin: auto;
+            }
+        }
+
+        .byline {
+            .flex(1);
+        }
+    }
+}

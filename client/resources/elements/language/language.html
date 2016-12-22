@@ -1,0 +1,6 @@
+<template>
+    <require from="resources/elements/language/language.css"></require>
+    <div repeat.for="lang of languages">
+        <div class="language" t="language.${lang}" mo-tap.call="change(lang)"></div>
+    </div>
+</template>

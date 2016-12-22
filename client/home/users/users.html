@@ -1,0 +1,32 @@
+<template>
+    <require from="./users.css"></require>
+    <div class="alert" t=${message}></div>
+    <div class="add">
+        <button class="pure-button btn"  mo-tap.call="add()">
+            <i class="fa fa-plus"></i>
+            ${'button.add' | t}
+        </button>
+    </div>
+    <div class="users">
+        <div class="pure-g row" repeat.for="user of users">
+            <div class="pure-u-1-5 cell display-name" mo-tap.call="getDetail(user)">
+                ${user.displayName}
+            </div>
+            <div class="pure-u-1-5 cell">
+                ${user.username}
+            </div>
+            <div class="pure-u-1-5 cell">
+                ${user.role | role}
+            </div>
+            <div class="pure-u-1-5 cell">
+                ${user.created | date}
+            </div>
+            <div class="pure-u-1-5 cell right">
+                <button class="pure-button btn ${canDelete(user) ? '' : 'hidden'}" mo-tap.call="delete(user)">
+                    <i class="fa fa-close"></i>
+                    ${'button.delete' | t}
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
