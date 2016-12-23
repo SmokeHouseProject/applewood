@@ -22,3 +22,7 @@ Creating or updating resources for mobile apps
 
 >Note: The current cordova build creates ios resource assets correctly however it builds all the Android resources in the root res dir but does not copy them to the android platform dir. I have added a cordova hook to copy these files during the build process.
 
+# Fav Icon
+
+Use <http://realfavicongenerator.net/>
+to generate a new favicon.ico for the project root
