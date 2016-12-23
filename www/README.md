@@ -1,1 +1,1 @@
-This folder must be in project. Cordova checks to determien if it is a valid project.
+This folder must be in project. Cordova checks to determine if it is a valid project.
