@@ -16,6 +16,7 @@ export default gulp.series(
     ),
     writeBundles,
     gulp.parallel(
+        cleanStylesDest,
         cleanLocalesDest,
         cleanScriptDest,
         cleanImageDest,
@@ -41,6 +42,15 @@ function writeBundles() {
 
 //custom methods to update cordova directories
 //
+
+function cleanStylesDest() {
+    return del([
+        './www/styles/**/*',
+        './app/styles/**/*',
+        './platforms/ios/www/styles/**/*',
+        './platforms/android/assets/www/styles/**/*'
+    ]);
+}
 
 function cleanLocalesDest() {
     return del([
