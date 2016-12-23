@@ -1,11 +1,11 @@
 node_modules
 app/node_modules
 server/node_modules
-app
+app/scripts
 dist
 platforms
 plugins
 typings
-www
+www/scripts
 .idea
 .DS_STORE

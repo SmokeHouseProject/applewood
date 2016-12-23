@@ -70,13 +70,13 @@ Enter `npm run prep` in the terminal open at the root of the project.
 ___
 
 The cordova platform is pre configured as follows:  
-   - Platforms
+  - Platforms
       - IOS
       - Android
- -  Plugins 
-    - Device
-    - Splachscreen
-    - Whitelist
+  -  Plugins   
+      - Device
+      - Splachscreen
+      - Whitelist
 
 The Cordova wrapper consumes the following directories and files:
   <pre><code>
