@@ -29,6 +29,8 @@ The following items must be installed on your dev machine with the exception of 
 -  MongoDB database server <https://www.mongodb.com/download-center#community>
 -  Node.js version 4.x or above <https://nodejs.org/en/> (Mac users see note below before installing node)
 -  Git Client <https://desktop.github.com/> or <https://git-scm.com/>
+-  Android Studio <https://developer.android.com/studio/index.html> or JDK 1.8 <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html> on Macs and Windows machines
+-  Xcode (on Macs only) 
 
 >For Mac users you may want to use Node Version manager <https://github.com/creationix/nvm/blob/master/README.markdown> This package is the recommended way to install and manage Node on Macs. 
 
@@ -44,9 +46,21 @@ ___
 5.  `npm install cordova -g`
 6.  `npm install aurelia-cli -g`
 7.  `npm install karma-cli -g`
-8.  `npm install ios-deploy -g`
-8.  `npm install` (Be patient - it may take awhile!)
-9.  `npm run prep`
+8.  `npm install ios-deploy -g` (Only on Macs)
+9.  `npm install` (Be patient - it may take awhile!)
+
+Next set configurations before running the prep command
+
+1. Determine the IP address of your machine (Don't use localhost)
+2.  Determine the IP address of your MongoDB server
+3. Edit `config/config.js` and set the following:
+    - `authApi => baseUrl: 'http://yourIP:8050'`
+    - `webApi => baseUrl: 'http://yourIP:8050/api/'`
+4. Edit `server/config/config.dev.js` and set the following:
+    - `config.host = 'yourIP`
+    - `config.mongo.connectionstring = 'mongodb://yourMongoServerIP/Applewood'`
+
+Enter `npm run prep` in the terminal open at the root of the project.
 
 >It is important to run the prep command. This installs the cordova platforms and plugins as well as performing a build and initializing the server web api. This only needs to done once.
 
