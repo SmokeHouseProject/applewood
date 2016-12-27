@@ -22,9 +22,11 @@ export default class {
           { route: ['','splash'], name: 'splash', moduleId: 'splash/splash', nav: false, authRoute: true  },
           { route: 'home', name: 'home', moduleId: 'home/home', nav: true, auth: true },
           { route: 'logout', name: 'logout', moduleId: 'logout', nav: false, authRoute: true },
-          { route: 'noaccess', name: 'noaccess', moduleId: 'noaccess', nav: false },
-          { route: 'root', name: 'root', redirect: ''}
-        ]);   
+          { route: 'noaccess', name: 'noaccess', moduleId: 'noaccess', nav: false }
+        ]);  
+
+      config.mapUnknownRoutes('noaccess');
+
     };
 
     this.router.configure(appRouterConfig);

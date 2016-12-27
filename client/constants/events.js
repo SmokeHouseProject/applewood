@@ -1,6 +1,8 @@
 export default {
 
     logIn: 'LogIn',
-    logOut : "LogOut"
+    logOut : "LogOut",
+    pause: 'Pause',
+    resume: 'Resume' 
      
 }

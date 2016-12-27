@@ -8,7 +8,7 @@ export class Permissions{
     this.user = user;
   }
   run(routingContext, next) {
-    let logoutRoute = '#/noaccess';
+    let logoutRoute = 'noaccess';
 
     if (routingContext.getAllInstructions().some(i => i.config.permission > this.user.role)) {
       console.error('Unauthorized Access Attempted');

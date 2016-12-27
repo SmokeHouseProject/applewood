@@ -5,14 +5,27 @@ import Config from '../config/config';
 import moment from 'moment';
 import numeral from 'numeral';
 import locales from 'locales';
+import {EventAggregator} from 'aurelia-event-aggregator';
+import event from 'constants/events';
 
-@inject(Device, Config, I18N)
+@inject(Device, Config, I18N, EventAggregator)
 export class Core {
 
-    constructor(device, config, i18n) {
+    constructor(device, config, i18n, ea) {
         this.device = device;
         this.config = config;
         this.i18n = i18n;
+        this.ea = ea
+
+        //map cordova events to aurelia
+        document.addEventListener("pause", () => {
+            _this.ea.publish(event.pause);
+        }, false);
+
+        document.addEventListener("resume", () => {
+            _this.ea.publish(event.resume);
+        }, false);
+
     }
 
     initialize() {

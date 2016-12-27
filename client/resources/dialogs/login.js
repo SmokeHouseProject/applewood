@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {DialogController} from 'aurelia-dialog';
+import {DialogController, DialogService} from 'aurelia-dialog';
 import {Device} from 'core/device';
 import {AuthService} from 'aurelia-auth';
 import {I18N} from 'aurelia-i18n';
@@ -9,9 +9,9 @@ import md5 from 'md5';
 import event from 'constants/events';
 import error from 'constants/errors';
 
-@inject(DialogController, Device, AuthService, I18N, EventAggregator, CurrentUser)
+@inject(DialogController, DialogService, Device, AuthService, I18N, EventAggregator, CurrentUser)
 export class Login {
-    constructor(dialogController, device, authService, i18n, ea, user) {
+    constructor(dialogController, dialogService, device, authService, i18n, ea, user) {
         this.device = device;
         this.auth = authService;
         this.i18n = i18n;
@@ -19,6 +19,7 @@ export class Login {
 
         this.user = user;
 
+        this.dialogService = dialogService;
         this.dialogController = dialogController;
         bindEvents(dialogController, this);
     }
@@ -71,11 +72,18 @@ export class Login {
     }
 
     cancel() {
-        _.delay( () => {
-            this.dialogController.cancel();
-        }, 100)
-    }
 
+        this.dialogController.cancel();
+
+        //sometimes dialog re-appears after closing - not sure why
+        //force the dialog to close if it is still open
+        if (this.dialogService.hasActiveDialog) {
+            _.each(this.dialogService.controllers, (controller) => {
+                controller.cancel();
+            })
+        }
+    }
+    
 }
 
 //auto close if user taps outside dialog box

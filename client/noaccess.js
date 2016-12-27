@@ -1,11 +1,11 @@
-import {inject, noView} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-auth';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {CurrentUser} from 'core/current-user';
 import event from 'constants/events';
 import {Router} from 'aurelia-router';
 
-@noView()
+
 @inject(AuthService, EventAggregator, CurrentUser, Router)
 export class Noaccess {
 
@@ -13,7 +13,7 @@ export class Noaccess {
         user.clear();
         ea.publish(event.logOut); 
         authService.logout();   
-        router.navigateToRoute('root');
+        router.navigateToRoute('splash');
     }
 
 }
