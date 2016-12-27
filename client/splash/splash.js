@@ -21,7 +21,7 @@ export class Splash {
         //       Aurelia child router does not always fire 
         //       unknownRoute resolver correctly
         localStorage.removeItem('CurrentUser');
-        localStorage.removeItem('tokenName');
+        localStorage.removeItem(tokenName);
 
     }
 
