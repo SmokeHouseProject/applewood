@@ -1,0 +1,4 @@
+{
+  "name": "page",
+  "description": "Creates a page class, template html, and less file and places them in a named folder in the project root."
+}
