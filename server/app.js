@@ -4,18 +4,30 @@ var mongoose = require('mongoose');
 var compression = require('compression');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var path = require('path');
 var config = require('./config');
+var _ = require('lodash');
 
 // Connect to DB
-mongoose.connect(config.mongo.connectionstring);
 mongoose.Promise = require('bluebird');
+var options = {
+  useMongoClient: true,
+  native_parser: true,
+  poolSize: 5,
+  keepAlive: 30000
+  //user: 'myUserName',
+  //pass: 'myPassword'  
+}
+mongoose.connect(config.mongo.connectionstring, options);
+
+// enable mongo logging for dev
+if (config.env === 'dev') {
+  mongoose.set('debug', true);
+}
 
 // Setup server
 var protocol = config.protocol;
 var app = express();
 var server;
-var port;
 
 if (protocol === 'https') {
     //todo: add credentials - private key and cert for https server
@@ -45,6 +57,8 @@ if (config.env === 'dev') {
     });
 }
 
+console.log('Using node ver =>', process.version);
+
 //config express and routing
 app.use(compression());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -52,11 +66,21 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 require('./routes')(app);
 
-var server = app.listen(config.port, config.host, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('Express Server listening at %s://%s:%s in %s mode', protocol, host, port, app.get('env'))
-});
+//config launch mode
+var server = null;
+if (_.isUndefined(process.env.PORT)) {
+    //launch in node
+    server = app.listen(config.port, config.host, function () {
+        var host = server.address().address;
+        var port = server.address().port;
+        console.log('Express Server listening at %s://%s:%s in %s mode', protocol, host, port, app.get('env'))
+    });
+} else {
+    //launch in IIS
+    server = app.listen(process.env.PORT, function () {
+        console.log('Express Server running in IIS in %s mode', app.get('env'))
+    });
+}
 
 // Expose app
 exports = module.exports = app;
