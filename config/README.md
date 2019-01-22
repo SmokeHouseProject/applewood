@@ -1,1 +1,0 @@
->Note: Changing the config requires the run process in the termnal window to be stopped and restarted before the changes will take effect.

@@ -7,14 +7,11 @@ exec('node seed');
 cd('..');
 
 //build project
-//exec('au build');
+exec('au build');
 
 //set up cordova
-exec('cordova platform add android');
-exec('cordova platform add ios');
-exec('cordova plugin add cordova-plugin-device');
-exec('cordova plugin add cordova-plugin-splashscreen');
-exec('cordova plugin add cordova-plugin-whitelist');
+cd('www');
+exec('cordova prepare');
 exec('cordova build');
-
+cd('..');
 

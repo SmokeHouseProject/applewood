@@ -4,7 +4,7 @@ Creating or updating resources for mobile apps
 
 1. Create a 1024 x 1024 png for the icon
 2. Create a 2208 x 2208 png for the splash
-3. Upload both files to <http://phonegap.limewebsolutions.nl/>
+3. Upload both files to <https://www.resource-generator.com/>
 4. Download the zip file of assets
 5. Unzip the assets file
 6. Copy the icons dir and the screens dir to the res directory

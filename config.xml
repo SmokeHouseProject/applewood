@@ -16,17 +16,22 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <platform name="">
+    <platform name="browser">
+        <preference name="ShowSplashScreen" value="false" />
+    </platform>
+    <platform name="android">
         <allow-intent href="market:*" />
+        <preference name="SplashScreenDelay" value="5000" />
+        <preference name="ShowSplashScreenSpinner" value="false" />
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <preference name="BackupWebStorage" value="local" />
+        <preference name="SplashScreenDelay" value="5000" />
+        <preference name="ShowSplashScreenSpinner" value="false" />
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     </platform>
-    <engine name="" spec="~5.2.2" />
-    <icon src="res/icon.png" />
-    <splash src="res/splash.png" />
     <platform name="ios">
         <icon height="60" src="res/icons/ios/icon-60.png" width="60" />
         <icon height="120" src="res/icons/ios/icon-60-2x.png" width="120" />
@@ -69,13 +74,10 @@
         <splash density="port-mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
         <splash density="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
     </platform>
-
-    <preference name="SplashScreenDelay" value="5000" />
-    <preference name="ShowSplashScreenSpinner" value="false"/>
-    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-
-    <platform name="android">
-        <hook type="after_prepare" src="hooks/copyResources.js" />
-    </platform>
-
+    <plugin name="cordova-plugin-device" spec="^2.0.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <engine name="browser" spec="^5.0.4" />
+    <engine name="android" spec="^7.1.4" />
+    <engine name="ios" spec="^4.5.5" />
 </widget>

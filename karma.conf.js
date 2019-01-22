@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 const path = require('path');
 const project = require('./aurelia_project/aurelia.json');
+const karmaConfig = project.unitTestRunners.find(x => x.id === 'karma');
 
 let testSrc = [
-  'test/sinon.js',
-  { pattern: project.unitTestRunner.source, included: false },
+  { pattern: karmaConfig.source, included: false },
   'test/aurelia-karma.js'
 ];
 
@@ -12,7 +12,11 @@ let output = project.platform.output;
 let appSrc = project.build.bundles.map(x => path.join(output, x.name));
 let entryIndex = appSrc.indexOf(path.join(output, project.build.loader.configTarget));
 let entryBundle = appSrc.splice(entryIndex, 1)[0];
-let files = [entryBundle].concat(testSrc).concat(appSrc);
+let sourceMaps = [{pattern:'scripts/**/*.js.map', included: false}];
+let files = [entryBundle].concat(testSrc).concat(appSrc).concat(sourceMaps);
+
+let transpilerOptions = project.transpiler.options;
+transpilerOptions.sourceMap = 'inline';
 
 module.exports = function(config) {
   config.set({
@@ -21,9 +25,10 @@ module.exports = function(config) {
     files: files,
     exclude: [],
     preprocessors: {
-      [project.unitTestRunner.source]: [project.transpiler.id]
+      [karmaConfig.source]: [project.transpiler.id],
+      [appSrc]: ['sourcemap']
     },
-    'babelPreprocessor': { options: project.transpiler.options },
+    'babelPreprocessor': { options: transpilerOptions },
     reporters: ['progress'],
     port: 9876,
     colors: true,

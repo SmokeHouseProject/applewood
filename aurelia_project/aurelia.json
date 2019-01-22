@@ -1,74 +1,60 @@
 {
   "name": "Applewood",
   "type": "project:application",
-  "platform": {
-    "id": "web",
-    "displayName": "Web",
-    "output": "scripts",
-    "index": "index.html"
-  },
-  "transpiler": {
-    "id": "babel",
-    "displayName": "Babel",
-    "fileExtension": ".js",
-    "options": {
-      "plugins": [
-        "transform-es2015-modules-amd"
-      ]
-    },
-    "source": "client/**/*.js"
-  },
-  "markupProcessor": {
-    "id": "none",
-    "displayName": "None",
-    "fileExtension": ".html",
-    "source": "client/**/*.html"
-  },
-  "cssProcessor": {
-    "id": "less",
-    "displayName": "Less",
-    "fileExtension": ".less",
-    "source": "client/**/*.less"
-  },
-  "watchFolders": {
-    "fonts": "fonts/**/*",
-    "images": "images/**/*",
-    "less": "less/**/*",
-    "locales": "locales/**/*",
-    "styles": "styles/**/*",
-    "root": [
-      "index.html"
-    ]
-  },
-  "editor": {
-    "id": "vscode",
-    "displayName": "Visual Studio Code"
-  },
-  "unitTestRunner": {
-    "id": "karma",
-    "displayName": "Karma",
-    "source": "test/unit/**/*.js"
-  },
-  "paths": {
-    "root": "client",
-    "resources": "client/resources",
-    "elements": "client/resources/elements",
-    "attributes": "client/resources/attributes",
-    "valueConverters": "client/resources/value-converters",
-    "bindingBehaviors": "client/resources/binding-behaviors"
-  },
-  "testFramework": {
-    "id": "jasmine",
-    "displayName": "Jasmine"
+  "bundler": {
+    "id": "cli",
+    "displayName": "Aurelia-CLI"
   },
   "build": {
     "targets": [
-      {
-        "id": "web",
-        "displayName": "Web",
-        "output": "scripts",
-        "index": "index.html"
-      }
+        {
+            "id": "web",
+            "displayName": "Web",
+            "port": 9000,
+            "index": "index.html",
+            "baseDir": ".",
+            "output": "scripts"
+        }
+    ],
+    "options": {
+        "minify": "stage & prod",
+        "sourcemaps": "dev & stage",
+        "rev": false,
+        "cache": "dev & stage"
+    },
+    "bundles": [
+        {
+            "name": "app-bundle.js",
+            "source": [
+              "**/*.{js,json,css,html}"
+            ]
+        },
+        {
+            "name": "vendor-bundle.js",
+            "prepend": [
+              "node_modules/bluebird/js/browser/bluebird.core.js",
+              {
+                "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
+                "env": "stage & prod"
+              },
+              {
+                "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
+                "env": "dev"
+              },
+              "node_modules/@babel/polyfill/browser.js",
+              "node_modules/requirejs/require.js"
+            ],
+            "dependencies": [
+              "aurelia-bootstrapper",
+              "aurelia-loader-default",
+              "aurelia-pal-browser",
+              {
+                "name": "aurelia-testing",
+                "env": "dev"
+              },
+              "text"
+            ]
+          }
     ],
     "loader": {
       "type": "require",
@@ -85,158 +71,103 @@
         }
       ]
     },
-    "options": {
-      "minify": "stage & prod",
-      "sourcemaps": "dev & stage"
+    "copyFiles" : {
+        "platforms/browser/www/cordova*.js": "scripts",
+        "platforms/browser/www/plugins/**/*.js": "scripts/plugins",
+        "platforms/browser/www/cordova*.js": "app/scripts",
+        "platforms/browser/www/plugins/**/*.js": "app/scripts/plugins",
+        "platforms/browser/www/config.xml": "app",
+        "main.js": "app",
+        "cordova.js": "app"
     },
-    "bundles": [
-      {
-        "name": "app-bundle.js",
-        "source": [
-          "[**/*.js]",
-          "**/*.{css,html}"
-        ]
-      },
-      {
-        "name": "vendor-bundle.js",
-        "prepend": [
-          "node_modules/bluebird/js/browser/bluebird.core.js",
-          "scripts/require.js"
-        ],
-        "dependencies": [
-          "aurelia-binding",
-          "aurelia-bootstrapper",
-          "aurelia-dependency-injection",
-          "aurelia-event-aggregator",
-          "aurelia-framework",
-          "aurelia-history",
-          "aurelia-history-browser",
-          "aurelia-loader",
-          "aurelia-loader-default",
-          "aurelia-logging",
-          "aurelia-logging-console",
-          "aurelia-metadata",
-          "aurelia-pal",
-          "aurelia-pal-browser",
-          "aurelia-path",
-          "aurelia-polyfills",
-          "aurelia-route-recognizer",
-          "aurelia-router",
-          "aurelia-task-queue",
-          "aurelia-templating",
-          "aurelia-templating-binding",
-          "deep-extend",
-          "whatwg-fetch",
+    "pushFiles" : {
+    "sources": {
+        "index.html": "",
+        "favicon.ico": "",
+        "scripts/app-bundle.js": "scripts",
+        "scripts/vendor-bundle.js": "scripts",
+        "styles/*.css": "styles",
+        "fonts/*.*": "fonts",
+        "images/*.*": "images",
+        "locales/**/*.json": "locales"
+    },
+    "targets": [
+        "www",
+        "app",
+        "platforms/browser/www",
+        "platforms/ios/www",
+        "platforms/android/app/src/main/assets/www"
+    ]
+    }
+  },
+  "platform": {
+    "id": "web",
+    "displayName": "Web",
+    "port": 9000,
+    "index": "index.html",
+    "baseDir": ".",
+    "output": "scripts"
+  },
+  "transpiler": {
+    "id": "babel",
+    "displayName": "Babel",
+    "fileExtension": ".js",
+    "options": {
+      "plugins": [
+        [
+          "@babel/plugin-transform-modules-amd",
           {
-            "name": "text",
-            "path": "../scripts/text"
-          },   
-          {
-            "name": "numeral",
-            "path": "../node_modules/numeral/numeral"
-          },
-          {
-            "name": "locales",
-            "path": "../node_modules/numeral/locales",
-            "deps": ["numeral"]
-          },
-          {
-            "name": "aurelia-templating-resources",
-            "path": "../node_modules/aurelia-templating-resources/dist/amd",
-            "main": "aurelia-templating-resources"
-          },
-          {
-            "name": "aurelia-templating-router",
-            "path": "../node_modules/aurelia-templating-router/dist/amd",
-            "main": "aurelia-templating-router"
-          },
-          {
-            "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "dev"
-          },
-          {
-              "name": "should",
-              "path": "../node_modules/should",
-              "main": "should.js",
-              "env": "dev"
-          },
-          {
-              "name": "lodash",
-              "path": "../node_modules/lodash",
-              "main": "lodash.min"
-          },
-          {
-            "name": "aurelia-auth",
-            "path": "../node_modules/aurelia-auth/dist/amd",
-            "main": "aurelia-auth"
-          },
-          {
-            "name": "aurelia-fetch-client",
-            "path": "../node_modules/aurelia-fetch-client/dist/amd",
-            "main": "aurelia-fetch-client"
-          },
-          {
-            "name": "aurelia-http-client",
-            "path": "../node_modules/aurelia-http-client/dist/amd",
-            "main": "aurelia-http-client"
-          },
-          {
-            "name": "i18next",
-            "path": "../node_modules/i18next/dist/umd",
-            "main": "i18next"
-          },
-          {
-            "name": "i18next-xhr-backend",
-            "path": "../node_modules/i18next-xhr-backend/dist/umd",
-            "main": "i18nextxhrbackend"
-          },
-          {
-             "name": "intl",
-            "path": "../node_modules/intl/dist",
-            "main": "Intl.min"
-          },
-          {
-            "name": "aurelia-i18n",
-            "path": "../node_modules/aurelia-i18n/dist/amd",
-            "main": "aurelia-i18n"
-          },
-          {
-            "name": "iscroll",
-            "path": "../node_modules/iscroll/build",
-            "main": "iscroll.js"
-          },
-          {
-            "name": "hammerjs",
-            "path": "../node_modules/hammerjs",
-            "main": "hammer.js"
-          },
-          {
-            "name": "hammer-timejs",
-            "path": "../node_modules/hammer-timejs",
-            "main": "hammer-time.js"
-          },
-          {
-            "name": "aurelia-dialog",
-            "path": "../node_modules/aurelia-dialog/dist/amd",
-            "main": "aurelia-dialog"
-          },
-          {
-            "name": "aurelia-validation",
-            "path": "../node_modules/aurelia-validation/dist/amd",
-            "main": "aurelia-validation"
-          },
-          {
-            "name": "md5",
-            "path": "../node_modules/blueimp-md5/js/md5"
-          },
-          {
-            "name": "moment",
-            "path": "../node_modules/moment/min/moment-with-locales.min"
+            "loose": true
           }
         ]
-      }
-    ]
-  }
+      ]
+    },
+    "source": "client/**/*.js"
+  },
+  "markupProcessor": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".html",
+    "source": "client/**/*.html"
+  },
+  "cssProcessor": {
+    "id": "less",
+    "displayName": "Less",
+    "fileExtension": ".less",
+    "source": "client/**/*.less"
+  },
+  "jsonProcessor": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".json",
+    "source": "client/**/*.json"
+  },
+  "editor": {
+    "id": "vscode",
+    "displayName": "Visual Studio Code"
+  },
+  "unitTestRunners": [
+    {
+      "id": "karma",
+      "displayName": "Karma",
+      "source": "test/unit/**/*.js"
+    }
+  ],
+  "integrationTestRunner": {
+    "id": "none",
+    "displayName": "None"
+  },
+  "paths": {
+    "root": "client",
+    "resources": "resources",
+    "elements": "resources/elements",
+    "attributes": "resources/attributes",
+    "valueConverters": "resources/value-converters",
+    "bindingBehaviors": "resources/binding-behaviors"
+  },
+  "testFramework": {
+    "id": "jasmine",
+    "displayName": "Jasmine"
+  },
+  "packageManager": "npm"
 }

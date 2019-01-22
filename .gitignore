@@ -1,19 +1,55 @@
+# You may want to customise this file depending on your Operating System
+# and the editor that you use.
+#
+# We recommend that you use a Global Gitignore for files that are not related
+# to the project. (https://help.github.com/articles/ignoring-files/#create-a-global-gitignore)
+
+# OS
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
+.DS_STORE
+Thumbs.db
+
+# Editors
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global
+# Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Dependencies
 node_modules
-app/node_modules
+typings
+
+# Server
 server/node_modules
-app/fonts
-app/images
-app/locales
-app/scripts
-app/styles
-app/index.html
-app/favicon.ico
-dist
+
+# Compiled files
+scripts
+client/environment.js
+client/environment.ts
+
+# Cordova
 platforms
 plugins
-scripts/app*
-scripts/vendor*
-typings
-www
-.idea
-.DS_STORE
+www/*
+!www/README.md
+
+# Electron
+app/*
+!app/package.json
+!app/README.md
+dist
+
+
+
+
+
+

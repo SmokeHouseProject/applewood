@@ -1,10 +1,10 @@
 import {inject} from 'aurelia-framework';
 import {Device} from 'core/device';
 import {I18N} from 'aurelia-i18n';
-import Config from '../config/config';
+import Config from './config/config';
 import moment from 'moment';
 import numeral from 'numeral';
-import locales from 'locales';
+//import locales from 'locales';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import event from 'constants/events';
 
@@ -19,11 +19,11 @@ export class Core {
 
         //map cordova events to aurelia
         document.addEventListener("pause", () => {
-            _this.ea.publish(event.pause);
+            this.ea.publish(event.pause);
         }, false);
 
         document.addEventListener("resume", () => {
-            _this.ea.publish(event.resume);
+            this.ea.publish(event.resume);
         }, false);
 
     }

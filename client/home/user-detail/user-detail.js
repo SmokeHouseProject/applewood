@@ -5,7 +5,7 @@ import {Repository} from 'data/repository';
 import roles from 'constants/roles';
 import {Converter} from 'constants/converter';
 import {User} from 'data/user';
-import md5 from 'md5';
+import md5 from 'blueimp-md5';
 
 @inject(DialogController, Device, Repository, Converter)
 export class UserDetail {

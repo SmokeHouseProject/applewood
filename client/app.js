@@ -2,6 +2,7 @@ import {inject} from 'aurelia-dependency-injection';
 import {FetchConfig} from 'aurelia-auth';
 import AppRouterConfig from 'router-config';
 import {Core} from 'core';
+import _ from 'lodash';
 
 @inject(FetchConfig, AppRouterConfig, Core)
 export class App {

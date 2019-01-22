@@ -5,7 +5,7 @@ import {AuthService} from 'aurelia-auth';
 import {I18N} from 'aurelia-i18n';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {CurrentUser} from 'core/current-user';
-import md5 from 'md5';
+import md5 from 'blueimp-md5';
 import event from 'constants/events';
 import error from 'constants/errors';
 
@@ -50,6 +50,7 @@ export class Login {
 
     login() {
         let _this = this;
+
         this.auth.login({ username: this.username.toLowerCase(), password: md5(this.password) })
             .then(response => {
                 if (response.code) {

@@ -1,17 +1,18 @@
 import environment from './environment';
 import Backend from 'i18next-xhr-backend';
-import Config from '../config/config';
+import Config from './config/config';
+import Promise from 'bluebird';
 
 //Configure Bluebird Promises.
 //Note: You may want to use environment-specific configuration.
 Promise.config({
-  warnings: {
+warnings: {
     wForgottenReturn: false
-  }
+}
 });
 
 export function configure(aurelia) {
-  
+
   aurelia.use
     .standardConfiguration()
     .plugin('aurelia-dialog')
