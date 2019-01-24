@@ -5,6 +5,8 @@ Applewood is a tasty flavor of The Smoke House Project <https://github.com/smoke
 Applewood is a skeleton framework for desktop/web/mobile deployment using Aurelia, a node Web API and a MongoDB.
 Each Smoke House Project is a good starting point for any project that can be run in a browser, compiled to a mobile app or built with electron into a desktop app.
 
+>Latest ver 0.2.0 has been updated to use node 10.x.x and uses latest release of Aurelia CLI
+
 Is a collection of the following libraries:  
 -  Electron  <http://electron.atom.io/> builder for desktop apps
 -  Cordova  <https://cordova.apache.org/> builder for mobile apps
@@ -29,10 +31,12 @@ The following items must be installed on your dev machine with the exception of 
 -  MongoDB database server <https://www.mongodb.com/download-center#community>
 -  Node.js version 4.x or above <https://nodejs.org/en/> (Mac users see note below before installing node)
 -  Git Client <https://desktop.github.com/> or <https://git-scm.com/>
--  Android Studio <https://developer.android.com/studio/index.html> or JDK 1.8 <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html> on Macs and Windows machines
+-  Android Studio <https://developer.android.com/studio/index.html> and JDK 1.8 <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html> on Macs and Windows machines
 -  Xcode (on Macs only) 
 
->For Mac users you may want to use Node Version manager <https://github.com/creationix/nvm/blob/master/README.markdown> This package is the recommended way to install and manage Node on Macs. 
+>For all users you may want to use Node Version manager (recommended)
+<https://github.com/coreybutler/nvm-windows> Windows machines
+<https://github.com/creationix/nvm> Macs 
 
 >You will need a good code editor. I recommend Visual Studio Code <https://code.visualstudio.com/download> but you may use any code editor you feel comfortable with. The Aurelia project in this framework has been optimized for Visual Studio Code. You may have to do some re-work for other editors.
 
@@ -71,6 +75,7 @@ ___
 
 The cordova platform is pre configured as follows:  
   - Platforms
+      - Browser
       - IOS
       - Android
   -  Plugins   
@@ -99,12 +104,14 @@ The Cordova wrapper consumes the following directories and files:
 ## Aurelia
 ___
 
-This project uses a pre-configured aurelia project using the aurelia cli <http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli> with the following options selected:
+This project uses a pre-configured aurelia project using the aurelia cli <https://aurelia.io/docs/cli> with the following options selected:
 
-1.  ES2016 js and Babel transpiler
-2.  Less CSS pre-processor
-3.  Unit Testing using Jasmine and Karma
-4.  Visual Studio Code as the editior  
+1.  Built-in bundler with RequireJS
+2.  ESNext
+3.  Babel
+4.  Less CSS pre-processor
+5.  Unit Testing using Karma and Jasmine
+6.  Visual Studio Code as the editior  
 
 Aurelia (the core project) consumes the following directories and files:
   <pre><code>
@@ -113,7 +120,6 @@ Aurelia (the core project) consumes the following directories and files:
     |-- /automation         Scripts to prep the project    
     |-- /client             Aurelia source files 
     |-- /images             Image files
-    |-- /config             Project configuration
     |-- /fonts              Font files
     |-- /images             Image files
     |-- /less               Less files
@@ -126,7 +132,6 @@ Aurelia (the core project) consumes the following directories and files:
     |-- .eslintrc.json      Linter config
     |-- .gitignore          Git config
     |-- cordova.js          Polyfill to stub cordova in a browser
-    |-- cordova_plugins.js  Polyfill to stub cordova in a browser
     |-- favicon.ico         Browser icon
     |-- index.html          Main file for Aurelia
     |-- jsconfig.json       Visual Studio config

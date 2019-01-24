@@ -3,18 +3,20 @@ This folder is automatically updated by a modified aurelia [build script](../aur
 It automatically updates the following files and directories:
 -  index.html
 -  favicon.ico
+-  main.js
+-  config.xml
+-  cordova.js
 -  /fonts
 -  /images
 -  /locales
 -  /scripts
 -  /styles
 
->The main.js file is a production version with the debugging window hidden.  
->This file must be manually edited.
+>The package.json is not copied from the root. It is a specific version for the electron build and must be edited manually.
 
 >The cordova files are polyfills required to run in a browser
 
->The node_modules folder is an artifact of the build process and is empty
+>The package-lock.json file is an artifact of the build process and does not need to be preserved.
 
 
 
