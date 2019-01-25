@@ -14,7 +14,6 @@ export default function copyFiles(done) {
   const files = Object.keys(instruction);
 
   return gulp.src(files)
-    .pipe(changedInPlace({ firstPass: true }))
     .pipe(gulp.dest(x => {
       const filePath = prepareFilePath(x.path);
       const key = files.find(f => minimatch(filePath, f));
@@ -29,8 +28,6 @@ function getNormalizedInstruction() {
   for (let key in files) {
     normalizedInstruction[path.posix.normalize(key)] = files[key];
   }
-
-  console.log('Instructions =>', normalizedInstruction);
 
   return normalizedInstruction;
 }
