@@ -7,7 +7,18 @@ var mongoose = require('mongoose');
 var md5 = require('blueimp-md5');
 
 console.log('Connecting to ' + config.mongo.connectionstring);
-mongoose.connect(config.mongo.connectionstring);
+
+// Connect to DB
+mongoose.Promise = require('bluebird');
+var options = {
+    useMongoClient: true,
+    native_parser: true,
+    poolSize: 5,
+    keepAlive: 30000
+    //user: 'myUserName',
+    //pass: 'myPassword'  
+  }
+mongoose.connect(config.mongo.connectionstring, options);
 
 // Add user with admin role and username = sam and password = crow
 function addUser() {

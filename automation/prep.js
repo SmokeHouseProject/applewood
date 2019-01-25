@@ -6,12 +6,17 @@ exec('npm install');
 exec('node seed');
 cd('..');
 
-//build project
-exec('au build');
-
 //set up cordova
 cd('www');
 exec('cordova prepare');
+exec('cordova build');
+cd('..');
+
+//build project
+exec('au build');
+
+//build cordova
+cd('www');
 exec('cordova build');
 cd('..');
 

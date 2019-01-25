@@ -20,7 +20,7 @@
     "lodash": "^4.17.2",
     "method-override": "^2.3.6",
     "moment": "^2.17.1",
-    "mongoose": "^4.6.6",
+    "mongoose": "^4.13.18",
     "njwt": "^0.4.0",
     "requirejs": "^2.3.6",
     "secure-random": "^1.1.1"

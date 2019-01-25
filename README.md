@@ -35,8 +35,8 @@ The following items must be installed on your dev machine with the exception of 
 -  Xcode (on Macs only) 
 
 >For all users you may want to use Node Version manager (recommended)
-<https://github.com/coreybutler/nvm-windows> Windows machines
-<https://github.com/creationix/nvm> Macs 
+- <https://github.com/coreybutler/nvm-windows> Windows machines
+- <https://github.com/creationix/nvm> Macs 
 
 >You will need a good code editor. I recommend Visual Studio Code <https://code.visualstudio.com/download> but you may use any code editor you feel comfortable with. The Aurelia project in this framework has been optimized for Visual Studio Code. You may have to do some re-work for other editors.
 
@@ -57,7 +57,7 @@ Next set configurations before running the prep command
 
 1. Determine the IP address of your machine (Don't use localhost)
 2.  Determine the IP address of your MongoDB server
-3. Edit `config/config.js` and set the following:
+3. Edit `client/config/config.js` and set the following:
     - `authApi => baseUrl: 'http://yourIP:8050'`
     - `webApi => baseUrl: 'http://yourIP:8050/api/'`
 4. Edit `server/config/config.dev.js` and set the following:
@@ -173,7 +173,7 @@ Electron consumes the following directories and files:
 
 >The build folder contains image resources required by electron. Please see [README](build/README.md) for detailed instructions.
 
-1.  To run the app in electron open new terminal in root and enter `electron .` The dot (.) is important!
+1.  To run the app in electron open new terminal in root and enter `electron app`
 2.  To build the app open new terminal in root and enter `npm run dist`
 
 ## Web API
@@ -187,11 +187,10 @@ Please see [README](server/README.md) for more information.
 ## Configuring the Client
 ___
 
-All configurations are located in the /config directory
+All configurations are located in the client/config directory
 
 >The baseUrl settings should match the server host settings.
 >Please note the `/api/` addition to the url for the webApi setting
->Localhost works for developing using a desktop browser but compiled mobile apps will not be able to find the server unless they have a valid IP address
 
 Please see [README](server/README.md) for configuring the server
 
