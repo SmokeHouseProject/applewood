@@ -5,6 +5,7 @@ import processMarkup from './process-markup';
 import processJson from './process-json';
 import processCSS from './process-css';
 import copyFiles from './copy-files';
+import copyFiles2 from './copy-files2';
 import watch from './watch';
 import project from '../aurelia.json';
 import pushFiles from './push-files';
@@ -16,7 +17,8 @@ let build = gulp.series(
     processMarkup,
     processJson,
     processCSS,
-    copyFiles
+    copyFiles,
+    copyFiles2
   ),
   writeBundles,
   pushFiles

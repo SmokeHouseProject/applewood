@@ -73,7 +73,9 @@
     },
     "copyFiles" : {
         "platforms/browser/www/cordova*.js": "scripts",
-        "platforms/browser/www/plugins/**/*.js": "scripts/plugins",
+        "platforms/browser/www/plugins/**/*.js": "scripts/plugins"
+    },
+    "copyFiles2" : {
         "platforms/browser/www/cordova*.js": "app/scripts",
         "platforms/browser/www/plugins/**/*.js": "app/scripts/plugins",
         "platforms/browser/www/config.xml": "app",

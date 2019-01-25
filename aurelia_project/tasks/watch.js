@@ -8,6 +8,7 @@ import transpile from './transpile';
 import processMarkup from './process-markup';
 import processCSS from './process-css';
 import copyFiles from './copy-files';
+import copyFiles2 from './copy-files2';
 import pushFiles from './push-files';
 
 const debounceWaitTime = 100;
@@ -23,6 +24,12 @@ let watches = [
 if (typeof project.build.copyFiles === 'object') {
   for (let src of Object.keys(project.build.copyFiles)) {
     watches.push({ name: 'file copy', callback: copyFiles, source: src });
+  }
+}
+
+if (typeof project.build.copyFiles2 === 'object') {
+  for (let src of Object.keys(project.build.copyFiles2)) {
+    watches.push({ name: 'file copy', callback: copyFiles2, source: src });
   }
 }
 
