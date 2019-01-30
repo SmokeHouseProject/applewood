@@ -5,4 +5,4 @@ Please see [README](dist/README.md)
 
 >Adding the cordova.js shim to the root causes the cordova command line to fail when executed from the root. A workaround is to change directory to root/www and execute cordova commands.
 
-
+>There is a bug in Cordova Browser code causing the config.xml load to fail when running inside Electron. See https://github.com/apache/cordova-browser/pull/50. This bug has been fixed but has not yet been released. We are currently using release 5.0.4 This fix should be in the next release. Temporary fix => Open /platforms/browser/www/cordova.js in editor. Goto line 890. Remove leading "/" from code segment <pre><code> xhr.open("get", "/config.xml", true); </code></pre> so that it reads <pre><code> xhr.open("get", "config.xml", true); </code></pre>The leading "/" causes the xhr loader to use an absolute path from the root of your drive instead of the relative path for the project. Removing the leading "/" fixes this behaviour.
