@@ -4,6 +4,6 @@ To generate image assetts:
 
 1.  Upload splash image to <https://iconverticons.com/online/>
 2.  Copy ico file, icns file and a png file for the background to the build folder.
-3.  Ensure the names follow the convention specified in <http://electron.rocks/electron-builder-explained/>
+3.  Ensure the names follow the convention specified in <https://www.electron.build/icons>
 
 
