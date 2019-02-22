@@ -3,7 +3,6 @@ This folder is automatically updated by a modified aurelia [build script](../aur
 It automatically updates the following files and directories:
 -  index.html
 -  favicon.ico
--  main.js
 -  config.xml
 -  cordova.js
 -  /fonts
@@ -13,6 +12,8 @@ It automatically updates the following files and directories:
 -  /styles
 
 >The package.json is not copied from the root. It is a specific version for the electron build and must be edited manually.
+
+>The main.js file is the bootstrapper for Electron.
 
 >The cordova files are polyfills required to run in a browser
 

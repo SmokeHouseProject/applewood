@@ -46,17 +46,15 @@ ___
 1.  Make sure you have all the prerequisites installed and working.
 2.  Clone or download this repository to your development machine.
 3.  Open a terminal (mac users) or command prompt (windows users) in the root of your cloned project. Enter the following commands:
-4.  `npm install electron -g`
-5.  `npm install cordova -g`
-6.  `npm install aurelia-cli -g`
-7.  `npm install karma-cli -g`
-8.  `npm install ios-deploy -g` (Only on Macs)
-9.  `npm install` (Be patient - it may take awhile!)
+4.  `npm install cordova -g`
+5.  `npm install aurelia-cli -g`
+6.  `npm install karma-cli -g`
+7.  `npm install` (Be patient - it may take awhile!)
 
 Next set configurations before running the prep command
 
 1. Determine the IP address of your machine (Don't use localhost)
-2.  Determine the IP address of your MongoDB server
+2. Determine the IP address of your MongoDB server
 3. Edit `client/config/config.js` and set the following:
     - `authApi => baseUrl: 'http://yourIP:8050'`
     - `webApi => baseUrl: 'http://yourIP:8050/api/'`
@@ -163,17 +161,16 @@ Configurations settings are located in [package.json](package.json).
 
 Electron consumes the following directories and files:
   <pre><code>
-    |-- /app                Core project source (don't edit this)
+    |-- /app                Core project source (don't edit this except main.js)
     |-- /build              Build resource files
     |-- /dist               Distribution files from build
-    |-- main.js             Loader file for Electron
   </code></pre>
 
 >The app folder gets updated by a custom aurelai build script. Do not edit this folder.
 
 >The build folder contains image resources required by electron. Please see [README](build/README.md) for detailed instructions.
 
-1.  To run the app in electron open new terminal in root and enter `electron app`
+1.  To run the app in electron open new terminal in root and enter `npm start`
 2.  To build the app open new terminal in root and enter `npm run dist`
 
 ## Web API

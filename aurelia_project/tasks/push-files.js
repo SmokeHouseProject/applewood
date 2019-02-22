@@ -3,6 +3,7 @@ import path from 'path';
 import minimatch from 'minimatch';
 import project from '../aurelia.json';
 import del from 'del';
+import merge2 from 'merge2';
 
 export default function pushFiles(done) {
   if (typeof project.build.pushFiles !== 'object') {
@@ -23,12 +24,12 @@ export default function pushFiles(done) {
   const targets = project.build.pushFiles.targets;
 
   clean(targets, sources).then(() => {
-    targets.forEach((target) => {
-      sendFiles(target, sources, instructions) 
-    });
-    done();
-    return;
-  })
+    return merge2(
+      targets.map((target) => {
+        return sendFiles(target, sources, instructions)
+      })
+  )})
+  done();
 }
 
 function clean(targets, sources) {

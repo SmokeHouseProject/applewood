@@ -60,9 +60,8 @@
     "console-control-strings": "^1.1.0",
     "debounce": "^1.2.0",
     "del": "^2.2.2",
-    "electron": "^1.4.8",
+    "electron": "^4.0.5",
     "electron-builder": "^20.38.5",
-    "electron-packager": "^8.3.0",
     "eslint": "^4.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
@@ -82,6 +81,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2",
     "karma-sourcemap-loader": "^0.3.7",
+    "merge2": "^1.2.3",
     "minimatch": "^3.0.4",
     "minipass": "^2.3.5",
     "shelljs": "^0.7.5",
@@ -94,7 +94,7 @@
   "build": {
     "appId": "com.darylcober.applewood",
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.business"
     },
     "win": {
       "icon": "build/icon.ico"
@@ -114,6 +114,7 @@
   },
   "scripts": {
     "prep": "node automation/prep.js",
+    "start": "electron app",
     "pack": "build --dir",
     "dist": "build"
   }

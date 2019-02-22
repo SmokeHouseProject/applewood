@@ -26,7 +26,6 @@ Thumbs.db
 
 # Dependencies
 node_modules
-typings
 
 # Server
 server/node_modules
@@ -43,10 +42,11 @@ www/*
 !www/README.md
 
 # Electron
+dist
 app/*
+!app/main.js
 !app/package.json
 !app/README.md
-dist
 
 
 

@@ -72,34 +72,25 @@
       ]
     },
     "copyFiles" : {
-        "platforms/browser/www/cordova*.js": "scripts",
-        "platforms/browser/www/plugins/**/*.js": "scripts/plugins"
-    },
-    "copyFiles2" : {
-        "platforms/browser/www/cordova*.js": "app/scripts",
-        "platforms/browser/www/plugins/**/*.js": "app/scripts/plugins",
-        "platforms/browser/www/config.xml": "app",
-        "main.js": "app",
-        "cordova.js": "app"
+      "platforms/browser/www/cordova*.js": ["scripts", "app/scripts"],
+      "platforms/browser/www/plugins/**/*.js": ["scripts/plugins", "app/scripts/plugins"],
+      "platforms/browser/www/config.xml": ["app"],
+      "cordova.js": ["app"]
     },
     "pushFiles" : {
-    "sources": {
+      "sources": {
         "index.html": "",
         "favicon.ico": "",
         "scripts/app-bundle.js": "scripts",
-        "scripts/vendor-bundle.js": "scripts",
-        "styles/*.css": "styles",
-        "fonts/*.*": "fonts",
-        "images/*.*": "images",
-        "locales/**/*.json": "locales"
-    },
-    "targets": [
+        "scripts/vendor-bundle.js": "scripts"
+      },
+      "targets": [
         "www",
         "app",
         "platforms/browser/www",
         "platforms/ios/www",
         "platforms/android/app/src/main/assets/www"
-    ]
+      ]
     }
   },
   "platform": {
