@@ -5,7 +5,7 @@ Applewood is a tasty flavor of The Smoke House Project <https://github.com/smoke
 Applewood is a skeleton framework for desktop/web/mobile deployment using Aurelia, a node Web API and a MongoDB.
 Each Smoke House Project is a good starting point for any project that can be run in a browser, compiled to a mobile app or built with electron into a desktop app.
 
->Latest ver 0.2.0 has been updated to use node 10.x.x and uses latest release of Aurelia CLI
+>Latest ver 0.3.0 has been updated to use node 10.x.x, uses latest release of Aurelia CLI 1.0.0-beta.11 and uses latest release of Cordova Browser 6.0.0  (see [known issues](KnownIssues.md))
 
 Is a collection of the following libraries:  
 -  Electron  <http://electron.atom.io/> builder for desktop apps
@@ -64,7 +64,7 @@ Next set configurations before running the prep command
 
 Enter `npm run prep` in the terminal open at the root of the project.
 
->It is important to run the prep command. This installs the cordova platforms and plugins as well as performing a build and initializing the server web api. This only needs to done once.
+>It is important to run the prep command. This installs the cordova platforms and plugins as well as performing a build and initializing the server web api. This only needs to be run once after a new git download.
 
 >The prep commands also seeds the data base with an administrator user with `username: sam` and `password: crow` so that you can log in.
 
@@ -90,14 +90,15 @@ The Cordova wrapper consumes the following directories and files:
     |-- /www                Core project source (don't edit this)
     |-- config.xml          Cordova config file
     |-- cordova.js          Polyfill to stub cordova in a browser
-    |-- cordova_plugins.js  Polyfill to stub cordova in a browser
   </code></pre>
 
->The www folder gets updated by a custom aurelai build script. Do not edit this folder.
+>The www folder gets updated by a custom aurelia build script. Do not edit this folder.
 
 >Mobile resource images are in the res folder. Please see [README](res/README.md) for detailed instructions.
 
 >Run `cordova build` if you change anything in any of the above files. It is not necessary to run a cordova build when editing the aurelia project because the custom build scripts push the www folder to the platforms.
+
+>Node tries to execute the cordova.js shim file in the project root when trying to execute any cordova cli commands. A simple fix is to run cordova cli commands from a sub directory such as www instead of the project root. 
 
 ## Aurelia
 ___
@@ -134,15 +135,18 @@ Aurelia (the core project) consumes the following directories and files:
     |-- index.html          Main file for Aurelia
     |-- jsconfig.json       Visual Studio config
     |-- karma.cong.js       Karma config
-    |-- main.js             Launcher used by Electron
   </code></pre>
 
 To run the app in dev mode open a new terminal and enter
 
-1.  `au run --watch` &nbsp;&nbsp;&nbsp;&nbsp;runs the aurelai app in watch mode
-2.  `au run --watch --server` &nbsp;&nbsp;&nbsp;&nbsp;runs the aurelai app and web api server in watch mode
+1.  `au run --watch` &nbsp;&nbsp;&nbsp;&nbsp;runs the aurelia app in watch mode
+2.  `au run --watch --server` &nbsp;&nbsp;&nbsp;&nbsp;runs the aurelia app and web api server in watch mode
 
-The build can be changed for different environments by adding a command line switch
+To build the app open a new terminal and enter
+
+1.  `au build` &nbsp;&nbsp;&nbsp;&nbsp; builds the aurelia app
+
+The run or build can be changed for different environments by adding a command line switch
 
 1.  `au run --watch --server --env dev` &nbsp;&nbsp;&nbsp;&nbsp;builds the aurelia app and web api server for development
 2.  `au run --watch --server --env stage` &nbsp;&nbsp;&nbsp;&nbsp;builds the aurelia app and web api server for stage
@@ -161,17 +165,19 @@ Configurations settings are located in [package.json](package.json).
 
 Electron consumes the following directories and files:
   <pre><code>
-    |-- /app                Core project source (don't edit this except main.js)
+    |-- /app                Core project source (don't edit files here)
+    |-- /app/main.js        Main project file for electron (editable)
+    |-- /app/package.json   Configuration file for electron (editable)
     |-- /build              Build resource files
     |-- /dist               Distribution files from build
   </code></pre>
 
->The app folder gets updated by a custom aurelai build script. Do not edit this folder.
+>The app folder gets updated by a custom aurelai build script. Do not edit files this folder except for the main.js file and the package.json file that are not copied during the update and may be edited as needed for the Electron app.
 
 >The build folder contains image resources required by electron. Please see [README](build/README.md) for detailed instructions.
 
-1.  To run the app in electron open new terminal in root and enter `npm start`
-2.  To build the app open new terminal in root and enter `npm run dist`
+1.  To run the electron app open new terminal in root and enter `npm start`
+2.  To build the electron installable package open new terminal in root and enter `npm run dist`
 
 ## Web API
 ___

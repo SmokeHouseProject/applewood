@@ -82,7 +82,11 @@
         "index.html": "",
         "favicon.ico": "",
         "scripts/app-bundle.js": "scripts",
-        "scripts/vendor-bundle.js": "scripts"
+        "scripts/vendor-bundle.js": "scripts",
+        "locales/**/*.json": "locales",
+        "images/**/*.*": "images",
+        "fonts/*.*": "fonts",
+        "styles/*.css": "styles"
       },
       "targets": [
         "www",

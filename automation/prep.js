@@ -9,7 +9,6 @@ cd('..');
 //set up cordova
 cd('www');
 exec('cordova prepare');
-exec('cordova build');
 cd('..');
 
 //build project

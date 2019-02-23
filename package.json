@@ -1,7 +1,7 @@
 {
   "name": "applewood",
   "description": "The applewood flavor of the Smoke House Project",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "main.js",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "bluebird": "^3.5.2",
     "blueimp-md5": "^2.10.0",
     "cordova-android": "^7.1.4",
-    "cordova-browser": "^5.0.4",
+    "cordova-browser": "^6.0.0",
     "cordova-ios": "^4.5.5",
     "electron-debug": "^2.0.0",
     "hammer-timejs": "^1.1.0",
