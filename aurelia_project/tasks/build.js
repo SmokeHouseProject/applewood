@@ -8,9 +8,13 @@ import copyFiles from './copy-files';
 import watch from './watch';
 import project from '../aurelia.json';
 import pushFiles from './push-files';
+import pkg from '../../package.json';
+import bump from 'gulp-bump';
 
 let build = gulp.series(
   readProjectConfiguration,
+  setAppVer,
+  setConfigVer,
   gulp.parallel(
     transpile,
     processMarkup,
@@ -36,6 +40,19 @@ if (CLIOptions.taskName() === 'build' && CLIOptions.hasFlag('watch')) {
 function readProjectConfiguration() {
   return buildCLI.src(project);
 }
+
+function setConfigVer() {
+    return gulp.src('./config.xml')
+    .pipe(bump({version: pkg.version}))
+    .pipe(gulp.dest('./'))
+}
+
+function setAppVer() {
+    return gulp.src('./app/package.json')
+    .pipe(bump({version: pkg.version}))
+    .pipe(gulp.dest('./app/'))
+}
+
 
 function writeBundles() {
   return buildCLI.dest();

@@ -7,15 +7,15 @@ exec('node seed');
 cd('..');
 
 //set up cordova
+//initializes the platforms directories and adds plugins
 cd('www');
 exec('cordova prepare');
 cd('..');
 
 //build project
+//copies the cordova scripts from platforms => aurelia
+//copies aurelia => www (cordova)
+//copies aurelia => app (electron)
 exec('au build');
 
-//build cordova
-cd('www');
-exec('cordova build');
-cd('..');
-
+//All project files are synced and ready for running / building
