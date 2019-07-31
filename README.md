@@ -5,6 +5,8 @@ Applewood is a tasty flavor of The Smoke House Project <https://github.com/smoke
 Applewood is a skeleton framework for desktop/web/mobile deployment using Aurelia, a node Web API and a MongoDB.
 Each Smoke House Project is a good starting point for any project that can be run in a browser, compiled to a mobile app or built with electron into a desktop app.
 
+Please visit my blog <https://darylcober.blogspot.com/> for a complete review of how I put together this repository.
+
 >Latest ver 0.3.0 has been updated to use node 10.x.x, uses latest release of Aurelia CLI 1.0.0-beta.11 and uses latest release of Cordova Browser 6.0.0  (see [known issues](KnownIssues.md))
 
 Is a collection of the following libraries:  
