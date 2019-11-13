@@ -1,7 +1,7 @@
 {
   "name": "applewood",
   "description": "The applewood flavor of the Smoke House Project",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "main.js",
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
   "author": "darylcober@darylcober.com",
   "license": "MIT",
   "dependencies": {
+    "anymatch": "^3.1.0",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-auth": "^3.0.5",
     "aurelia-bootstrapper": "^2.3.3",
@@ -26,6 +27,7 @@
     "aurelia-validation": "^1.5.0",
     "bluebird": "^3.5.5",
     "blueimp-md5": "^2.12.0",
+    "braces": "^3.0.2",
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.0.1",
@@ -35,14 +37,18 @@
     "electron-debug": "^3.0.1",
     "hammer-timejs": "^1.1.0",
     "hammerjs": "^2.0.8",
-    "i18next": "^17.0.12",
+    "i18next": "^17.0.13",
     "i18next-xhr-backend": "^3.1.2",
     "intl": "^1.2.5",
     "iscroll": "^5.2.0",
     "lodash": "^4.17.15",
+    "micromatch": "^4.0.2",
+    "mixin-deep": "^2.0.1",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "requirejs": "^2.3.6",
+    "set-value": "^3.0.1",
+    "snapdragon": "^0.12.0",
     "text": "github:requirejs/text#latest",
     "whatwg-fetch": "^3.0.0"
   },
@@ -63,7 +69,7 @@
     "console-control-strings": "^1.1.0",
     "debounce": "^1.2.0",
     "del": "^5.1.0",
-    "electron": "^6.0.4",
+    "electron": "^6.0.6",
     "electron-builder": "^21.2.0",
     "eslint": "^6.2.2",
     "gulp": "^4.0.2",
@@ -80,14 +86,14 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-watch": "^5.0.1",
     "jasmine-core": "^3.4.0",
-    "karma": "^4.2.0",
+    "karma": "^4.3.0",
     "karma-babel-preprocessor": "^8.0.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^2.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "merge2": "^1.2.4",
     "minimatch": "^3.0.4",
-    "minipass": "^2.4.0",
+    "minipass": "^2.5.0",
     "shelljs": "^0.8.3",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
@@ -111,15 +117,15 @@
       "cordova-plugin-splashscreen": {}
     },
     "platforms": [
-      "browser",
       "android",
-      "ios"
+      "ios",
+      "browser"
     ]
   },
   "scripts": {
     "prep": "node automation/prep.js",
     "start": "electron app",
-    "pack": "build --dir",
-    "dist": "build"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   }
 }

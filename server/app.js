@@ -10,8 +10,8 @@ var _ = require('lodash');
 // Connect to DB
 mongoose.Promise = require('bluebird');
 var options = {
-  useMongoClient: true,
-  native_parser: true,
+  useNewUrlParser: true,  
+  useUnifiedTopology: true,  
   poolSize: 5,
   keepAlive: 30000
   //user: 'myUserName',

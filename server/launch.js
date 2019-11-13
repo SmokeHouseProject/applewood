@@ -18,7 +18,7 @@ exports.startWebAPI = () => {
 
     stream.on('restart', () => {
         console.log('Re-Starting Web API Server');
-        gulp.src('server/app.js')
+        //gulp.src('server/app.js')
     })
         .on('crash', function () {
             console.error('Web API Server has crashed!');
