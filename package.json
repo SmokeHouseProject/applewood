@@ -114,6 +114,9 @@
     },
     "win": {
       "icon": "build/icon.ico"
+    },
+    "dmg": {
+       "sign": false
     }
   },
   "cordova": {
