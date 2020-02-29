@@ -5,7 +5,7 @@ config.env = "dev";
 //todo: add credentials - private key and cert for https server
 
 config.protocol = 'http';       //valid values are 'http' and 'https'
-config.host = '192.168.219.10';   //use IP and not 'localhost'
+config.host = '192.168.1.6';   //use IP and not 'localhost'
 config.port = 8050;  
 
 config.mongo.connectionstring = 'mongodb://mongo/Applewood';

@@ -9,6 +9,9 @@ Please visit my blog <https://darylcober.blogspot.com/> for a complete review of
 
 >Latest ver 0.3.0 has been updated to use node 10.x.x, uses latest release of Aurelia CLI 1.0.0-beta.11 and uses latest release of Cordova Browser 6.0.0  (see [known issues](KnownIssues.md))
 
+>This project now includes Apple notarize for building a distributable for Macs. Please see my blog at <https://darylcober.blogspot.com/2020/02/notarize-ios-apps.html> for more information. You MUST update the appId in root/package.json "build" node to reflect your apple developer account. You MUST update the configuration information in notarize/notarize.js to reflect your apple developer id and your app specific password. You must update the widget id in root/config.xml to reflect your apple developer account. Failing to do so will result in the build failing.
+
+
 Is a collection of the following libraries:  
 -  Electron  <http://electron.atom.io/> builder for desktop apps
 -  Cordova  <https://cordova.apache.org/> builder for mobile apps
