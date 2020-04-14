@@ -3,6 +3,16 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+// load the electron reloader
+try {
+    const path = require('path');
+    //watch the reload file for changes
+    require('electron-reload')(path.join(__dirname,'reload'), {
+        electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+    });
+} catch(e) {}
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win

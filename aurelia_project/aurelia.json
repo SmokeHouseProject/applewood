@@ -86,7 +86,8 @@
         "locales/**/*.json": "locales",
         "images/**/*.*": "images",
         "fonts/*.*": "fonts",
-        "styles/*.css": "styles"
+        "styles/*.css": "styles",
+        "reload": ""
       },
       "targets": [
         "www",
