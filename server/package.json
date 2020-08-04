@@ -13,14 +13,14 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
-    "blueimp-md5": "^2.12.0",
+    "blueimp-md5": "^2.17.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "lodash": "^4.17.19",
     "method-override": "^3.0.0",
-    "moment": "^2.24.0",
-    "mongoose": "^5.9.5",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.27",
     "njwt": "^1.0.0",
     "requirejs": "^2.3.6",
     "secure-random": "^1.1.2"
@@ -28,11 +28,11 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-nodemon": "^2.5.0",
-    "jasmine-core": "^3.5.0",
-    "karma": "^4.4.1",
+    "jasmine-core": "^3.6.0",
+    "karma": "^5.1.1",
     "karma-babel-preprocessor": "^8.0.1",
     "karma-chrome-launcher": "^3.1.0",
-    "karma-jasmine": "^3.1.1",
+    "karma-jasmine": "^3.3.1",
     "karma-sourcemap-loader": "^0.3.7",
     "minimist": ">=1.2.5"
   }
