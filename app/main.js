@@ -3,7 +3,8 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-// load the electron reloader
+// load the electron reloader in dev
+// will not load in prod 
 try {
     const path = require('path');
     //watch the reload file for changes
