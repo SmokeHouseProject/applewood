@@ -59,13 +59,8 @@ ___
 
 Next set configurations before running the prep command
 
-1. Determine the IP address of your machine (Don't use localhost)
-2. Determine the IP address of your MongoDB server
-3. Edit `client/config/config.js` and set the following:
-    - `authApi => baseUrl: 'http://yourIP:8050'`
-    - `webApi => baseUrl: 'http://yourIP:8050/api/'`
-4. Edit `server/config/config.dev.js` and set the following:
-    - `config.host = 'yourIP`
+1. Determine the IP address of your MongoDB server
+2. Edit `server/config/config.dev.js` and set the following:
     - `config.mongo.connectionstring = 'mongodb://yourMongoServerIP/Applewood'`
 
 Enter `npm run prep` in the terminal open at the root of the project.
