@@ -34,6 +34,7 @@ ___
 The following items must be installed on your dev machine with the exception of the MongoDB server. You just need a sever to be available for development.
 
 -  MongoDB database server <https://www.mongodb.com/download-center#community>
+  - Note that this project provides a [docker-compose](docker-compose.yml) file. With a docker engine installed, you can run `docker-compose up` to launch a MongoDB server exposed on it's default port, 27017.
 -  Node.js version 4.x or above <https://nodejs.org/en/> (Mac users see note below before installing node)
 -  Git Client <https://desktop.github.com/> or <https://git-scm.com/>
 -  Android Studio <https://developer.android.com/studio/index.html> and JDK 1.8 <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html> on Macs and Windows machines
