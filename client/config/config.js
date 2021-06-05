@@ -1,7 +1,7 @@
 export default
 {
     authApi: {
-        baseUrl: 'http://192.168.1.6:8050/',
+        baseUrl: 'http://0.0.0.0:8050/',
         tokenPrefix: 'Applewood',
         tokenName: 'token',
         signupUrl: '',
@@ -17,9 +17,9 @@ export default
         'fr'
     ],
     webApi: {
-        baseUrl: 'http://192.168.1.6:8050/api/'
+        baseUrl: 'http://0.0.0.0:8050/api/'
     },
-    defaultFormats : {
+    defaultFormats: {
         date: 'MMM DD YYYY',
         number: '$0,0.00'
     }
