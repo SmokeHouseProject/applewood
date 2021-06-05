@@ -1,4 +1,4 @@
-# Applewood 
+# Applewood
 
 Applewood is a tasty flavor of The Smoke House Project <https://github.com/smokehouseproject>
 
@@ -57,7 +57,7 @@ ___
 6.  `npm install karma-cli -g`
 7.  `npm install` (Be patient - it may take awhile!)
 
-Next set configurations before running the prep command
+Next if you're not running MongoDB locally, set its host configuration  before running the prep command
 
 1. Determine the IP address of your MongoDB server
 2. Edit `server/config/config.dev.js` and set the following:
