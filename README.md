@@ -1,4 +1,4 @@
-# Applewood 
+# Applewood
 
 Applewood is a tasty flavor of The Smoke House Project <https://github.com/smokehouseproject>
 
@@ -34,6 +34,7 @@ ___
 The following items must be installed on your dev machine with the exception of the MongoDB server. You just need a sever to be available for development.
 
 -  MongoDB database server <https://www.mongodb.com/download-center#community>
+  - Note that this project provides a [docker-compose](docker-compose.yml) file. With a docker engine installed, you can run `docker-compose up` to launch a MongoDB server exposed on it's default port, 27017.
 -  Node.js version 4.x or above <https://nodejs.org/en/> (Mac users see note below before installing node)
 -  Git Client <https://desktop.github.com/> or <https://git-scm.com/>
 -  Android Studio <https://developer.android.com/studio/index.html> and JDK 1.8 <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html> on Macs and Windows machines
@@ -56,15 +57,10 @@ ___
 6.  `npm install karma-cli -g`
 7.  `npm install` (Be patient - it may take awhile!)
 
-Next set configurations before running the prep command
+Next, if you're not running MongoDB locally, set its host configuration before running the prep command
 
-1. Determine the IP address of your machine (Don't use localhost)
-2. Determine the IP address of your MongoDB server
-3. Edit `client/config/config.js` and set the following:
-    - `authApi => baseUrl: 'http://yourIP:8050'`
-    - `webApi => baseUrl: 'http://yourIP:8050/api/'`
-4. Edit `server/config/config.dev.js` and set the following:
-    - `config.host = 'yourIP`
+1. Determine the IP address of your MongoDB server
+2. Edit `server/config/config.dev.js` and set the following:
     - `config.mongo.connectionstring = 'mongodb://yourMongoServerIP/Applewood'`
 
 Enter `npm run prep` in the terminal open at the root of the project.
