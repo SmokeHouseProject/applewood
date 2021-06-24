@@ -8,6 +8,12 @@ import numeral from 'numeral';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import event from 'constants/events';
 
+//breaking change - numeral.js
+//numeral.locale() no longer loads resources ... just sets them to active
+//must load individual locales
+import 'numeral/locales/fr';
+
+
 @inject(Device, Config, I18N, EventAggregator)
 export class Core {
 

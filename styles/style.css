@@ -8,7 +8,7 @@ body.iOS {
 
 ux-dialog-overlay.active {
     background-color: black;
-    opacity: 0.5 !important;
+    opacity: 0.75 !important;
 }
 
 ux-dialog-container>div {
