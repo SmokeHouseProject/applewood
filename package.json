@@ -47,7 +47,7 @@
     "moment": "^2.29.1",
     "numeral": "^2.0.6",
     "requirejs": "^2.3.6",
-    "set-value": "^4.0.0",
+    "set-value": "^4.0.1",
     "snapdragon": "^0.12.1",
     "text": "github:requirejs/text#latest",
     "whatwg-fetch": "^3.6.2"
