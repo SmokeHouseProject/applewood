@@ -44,7 +44,7 @@
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",
     "mixin-deep": "^2.0.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "numeral": "^2.0.6",
     "requirejs": "^2.3.6",
     "set-value": "^4.0.0",
